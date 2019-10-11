@@ -65,20 +65,8 @@ public class Reviewer {
         return true
     }
     
-    public func requestReview(appStoreId: String? = nil, force: Bool = false) {
+    public func requestReview() {
         guard #available(iOS 11, macOS 10.14, *) else {
-            guard force else {
-                return
-            }
-            guard let appStoreId = appStoreId else {
-                fatalError("appStoreId is mandatory on iOS < 11 and macOS < 10.14")
-            }
-            let url = Reviewer.urlForReview(withAppId: appStoreId)
-            #if os(macOS)
-            NSWorkspace.shared.open(url)
-            #else
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            #endif
             return
         }
 
