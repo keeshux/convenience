@@ -65,7 +65,7 @@ public class Reviewer {
         return true
     }
     
-    public func requestReview() {
+    private func requestReview() {
         guard #available(iOS 11, macOS 10.14, *) else {
             return
         }
