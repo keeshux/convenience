@@ -1,0 +1,41 @@
+//
+//  Preferences.swift
+//  Convenience
+//
+//  Created by Davide De Rosa on 9/13/19.
+//  Copyright © 2019 Davide De Rosa. All rights reserved.
+//
+
+import Foundation
+
+//public protocol Preferences: Codable {
+//}
+//
+//extension Preferences {
+//}
+//
+//public extension UserDefaults {
+//    func setPreferences<P: Preferences>(_ values: P) {
+//        let mirror = Mirror(reflecting: values)
+//        for entry in mirror.children {
+//            guard let label = entry.label else {
+//                continue
+//            }
+//            print("set(\(entry.value), forKey: \(label))")
+////            set(entry.value, forKey: label)
+//        }
+//    }
+//
+//    func preferences<P: Preferences>() throws -> P {
+//        let mirror = Mirror(reflecting: self)
+//        var dict: [String: Any] = [:]
+//        for entry in mirror.children {
+//            guard let label = entry.label else {
+//                continue
+//            }
+//            let value = object(forKey: label)
+//            dict[label] = value
+//        }
+//        return try construct(dictionary: dict)
+//    }
+//}
