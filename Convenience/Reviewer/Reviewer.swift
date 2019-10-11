@@ -33,7 +33,7 @@ public class Reviewer {
     }
 
     @discardableResult
-    public func reportEvents(_ eventCount: Int) -> Bool {
+    public func reportEvents(_ eventCount: Int, appStoreId: String? = nil) -> Bool {
         guard let currentVersionString = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, let currentVersion = Int(currentVersionString) else {
             return false
         }
@@ -65,7 +65,22 @@ public class Reviewer {
         return true
     }
     
-    private func requestReview() {
+    public func requestReview(appStoreId: String? = nil, force: Bool = false) {
+        guard #available(iOS 11, macOS 10.14, *) else {
+            guard force else {
+                return
+            }
+            guard let appStoreId = appStoreId else {
+                fatalError("appStoreId is mandatory on iOS < 11 and macOS < 10.14")
+            }
+            let url = Reviewer.urlForReview(withAppId: appStoreId)
+            #if os(macOS)
+            NSWorkspace.shared.open(url)
+            #else
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            #endif
+            return
+        }
 
         // may or may not appear
         SKStoreReviewController.requestReview()
