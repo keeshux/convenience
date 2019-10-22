@@ -31,6 +31,8 @@ public class CreditsViewController: UITableViewController, StrongTableHost {
     
     public var noticesHeader = "Notices"
     
+    public var accentColor: UIColor?
+    
     // MARK: StrongTableModelHost
     
     public var model: StrongTableModel<SectionType, RowType> = StrongTableModel()
@@ -117,6 +119,7 @@ extension CreditsViewController {
         case .notice:
             vc.software = notices[indexPath.row]
         }
+        vc.accentColor = accentColor
         navigationController?.pushViewController(vc, animated: true)
     }
 }

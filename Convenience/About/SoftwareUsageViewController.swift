@@ -39,11 +39,11 @@ public class SoftwareUsageViewController: UIViewController {
         if #available(iOS 13, *) {
             scrollView?.backgroundColor = backgroundColor ?? .systemBackground
             label?.textColor = textColor ?? .label
-            activity?.tintColor = accentColor ?? .label
+            activity?.color = accentColor ?? .label
         } else {
             scrollView?.backgroundColor = backgroundColor
             label?.textColor = textColor
-            activity?.tintColor = accentColor
+            activity?.color = accentColor
         }
 
         guard let software = software else {
