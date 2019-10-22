@@ -36,13 +36,13 @@ public class SoftwareUsageViewController: UIViewController {
 
         title = software?.name
         activity?.hidesWhenStopped = true
-        if let backgroundColor = backgroundColor {
+        if #available(iOS 13, *) {
+            scrollView?.backgroundColor = backgroundColor ?? .systemBackground
+            label?.textColor = textColor ?? .label
+            activity?.tintColor = accentColor ?? .label
+        } else {
             scrollView?.backgroundColor = backgroundColor
-        }
-        if let textColor = textColor {
             label?.textColor = textColor
-        }
-        if let accentColor = accentColor {
             activity?.tintColor = accentColor
         }
 
