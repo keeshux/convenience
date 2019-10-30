@@ -25,7 +25,7 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
     
     public typealias TransactionObserver = (InAppPurchaseResult, Error?) -> Void
     
-    public typealias RestoreObserver = (Bool, PID?) -> Void
+    public typealias RestoreObserver = (Bool, PID?, Error?) -> Void
     
     private var productsMap: [PID: SKProduct]
     
@@ -136,7 +136,7 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
                         guard let pid = PID(rawValue: productIdentifier) else {
                             continue
                         }
-                        r(false, pid)
+                        r(false, pid, nil)
                     }
                 }
                 
@@ -149,6 +149,12 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
                 } else {
                     DispatchQueue.main.async {
                         observer?(.failure, tx.error)
+                        for r in currentRestoreObservers {
+                            guard let pid = PID(rawValue: productIdentifier) else {
+                                continue
+                            }
+                            r(false, pid, tx.error)
+                        }
                     }
                 }
                 
@@ -160,14 +166,14 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
 
     public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
         for r in restoreObservers {
-            r(true, nil)
+            r(true, nil, nil)
         }
         restoreObservers.removeAll()
     }
     
     public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
         for r in restoreObservers {
-            r(true, nil)
+            r(true, nil, error)
         }
         restoreObservers.removeAll()
     }
