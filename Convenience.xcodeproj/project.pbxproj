@@ -179,6 +179,8 @@
 		0E3C57D22332D91F00689FF6 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				0E3C57D52332DA6B00689FF6 /* ApplicationInfo.swift */,
+				0E529BDD2326D67A007EE680 /* Software.swift */,
 				0E3C57D32332D91F00689FF6 /* URL+MailTo.swift */,
 			);
 			path = Misc;
@@ -238,9 +240,7 @@
 		0E529BD42326D646007EE680 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				0E3C57D52332DA6B00689FF6 /* ApplicationInfo.swift */,
 				0E529BD82326D646007EE680 /* CreditsViewController.swift */,
-				0E529BDD2326D67A007EE680 /* Software.swift */,
 				0E529BD62326D646007EE680 /* SoftwareUsageViewController.swift */,
 				0E529BE12326DA8D007EE680 /* SoftwareUsageViewController.xib */,
 				0EE48FAB2334D02D008FA28A /* UIViewController+Share.swift */,
