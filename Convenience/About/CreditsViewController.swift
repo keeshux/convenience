@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CreditsViewController: UITableViewController, StrongTableHost {
+open class CreditsViewController: UITableViewController, StrongTableHost {
     private class Cell: UITableViewCell {
         static let reuseIdentifier = "Cell"
         
@@ -27,9 +27,17 @@ public class CreditsViewController: UITableViewController, StrongTableHost {
     
     private var notices: [Software] = []
     
+    public var translators: [String: String] = [:]
+    
+    private lazy var languages = translators.keys.sorted {
+        return localizedLanguage($0) < localizedLanguage($1)
+    }
+
     public var licensesHeader = "Licenses"
     
     public var noticesHeader = "Notices"
+    
+    public var translationsHeader = "Translations"
     
     public var accentColor: UIColor?
     
@@ -40,12 +48,15 @@ public class CreditsViewController: UITableViewController, StrongTableHost {
     public func reloadModel() {
         model.add(.licenses)
         model.add(.notices)
-        
+        model.add(.translations)
+
         model.setHeader(licensesHeader, forSection: .licenses)
         model.setHeader(noticesHeader, forSection: .notices)
+        model.setHeader(translationsHeader, forSection: .translations)
 
         model.set(.license, count: licenses.count, forSection: .licenses)
         model.set(.notice, count: notices.count, forSection: .notices)
+        model.set(.translation, count: languages.count, forSection: .translations)
     }
     
     // MARK: UIViewController
@@ -54,7 +65,7 @@ public class CreditsViewController: UITableViewController, StrongTableHost {
         self.init(style: .grouped)
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         if title == nil {
@@ -73,12 +84,16 @@ extension CreditsViewController {
         case licenses
         
         case notices
+        
+        case translations
     }
 
     public enum RowType: Int {
         case license
         
         case notice
+        
+        case translation
     }
     
     public override func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,26 +115,48 @@ extension CreditsViewController {
             let obj = licenses[indexPath.row]
             cell.textLabel?.text = obj.name
             cell.detailTextLabel?.text = obj.license?.type
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
 
         case .notice:
             let obj = notices[indexPath.row]
             cell.textLabel?.text = obj.name
             cell.detailTextLabel?.text = nil
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
+
+        case .translation:
+            let lang = languages[indexPath.row]
+            guard let author = translators[lang] else {
+                fatalError("Author not found for language \(lang)")
+            }
+            cell.textLabel?.text = localizedLanguage(lang)
+            cell.detailTextLabel?.text = author
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
         }
-        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SoftwareUsageViewController()
+        let software: Software
         switch model.row(at: indexPath) {
         case .license:
-            vc.software = licenses[indexPath.row]
+            software = licenses[indexPath.row]
             
         case .notice:
-            vc.software = notices[indexPath.row]
+            software = notices[indexPath.row]
+            
+        case .translation:
+            return
         }
+        let vc = SoftwareUsageViewController()
+        vc.software = software
         vc.accentColor = accentColor
         navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+private func localizedLanguage(_ code: String) -> String {
+    return Locale.current.localizedString(forLanguageCode: code)?.capitalized ?? code
 }
