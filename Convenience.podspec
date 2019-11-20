@@ -62,4 +62,10 @@ Pod::Spec.new do |s|
         p.ios.deployment_target = "11.0"
         p.ios.source_files = "Convenience/Tables/*.{swift,xib}"
     end
+    s.subspec "WebServices" do |p|
+        p.ios.deployment_target = "11.0"
+        p.osx.deployment_target = "10.11"
+        p.dependency "SwiftyBeaver"
+        p.source_files = "Convenience/WebServices/*.{swift,xib}"
+    end
 end

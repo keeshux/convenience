@@ -5,6 +5,7 @@ use_frameworks!
 target 'Convenience' do
     pod 'MBProgressHUD'
     pod 'FontAwesome.swift'
+    pod 'SwiftyBeaver'
 
     target 'ConvenienceTests' do
     end

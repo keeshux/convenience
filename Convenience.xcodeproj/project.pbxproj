@@ -50,6 +50,10 @@
 		0EB4DFAA232676F7005E51D8 /* Convenience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB4DFA0232676F6005E51D8 /* Convenience.framework */; };
 		0EB4DFAF232676F7005E51D8 /* ConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB4DFAE232676F7005E51D8 /* ConvenienceTests.swift */; };
 		0EB4DFB1232676F7005E51D8 /* Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EB4DFA3232676F6005E51D8 /* Convenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EB9EB672385F82C009C0A1C /* ReadonlyWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB9EB662385F82C009C0A1C /* ReadonlyWebServices.swift */; };
+		0EB9EB692385FC30009C0A1C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB9EB682385FC30009C0A1C /* Endpoint.swift */; };
+		0EB9EB6B2385FC46009C0A1C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB9EB6A2385FC46009C0A1C /* Response.swift */; };
+		0EB9EB6D2385FCD6009C0A1C /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB9EB6C2385FCD6009C0A1C /* ResponseParser.swift */; };
 		0EE48FAC2334D02D008FA28A /* UIViewController+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE48FAB2334D02D008FA28A /* UIViewController+Share.swift */; };
 		49AF37C27D8A53E40A8C3566 /* Pods_Convenience_ConvenienceDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B351196D5B03C71980BE759 /* Pods_Convenience_ConvenienceDemo.framework */; };
 		C935640AAE5B6C1035971801 /* Pods_Convenience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BDF04F5B9D4CE41A69C188 /* Pods_Convenience.framework */; };
@@ -121,6 +125,10 @@
 		0EB4DFA9232676F7005E51D8 /* ConvenienceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvenienceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB4DFAE232676F7005E51D8 /* ConvenienceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenienceTests.swift; sourceTree = "<group>"; };
 		0EB4DFB0232676F7005E51D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EB9EB662385F82C009C0A1C /* ReadonlyWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadonlyWebServices.swift; sourceTree = "<group>"; };
+		0EB9EB682385FC30009C0A1C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		0EB9EB6A2385FC46009C0A1C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		0EB9EB6C2385FCD6009C0A1C /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		0EE48FAB2334D02D008FA28A /* UIViewController+Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Share.swift"; sourceTree = "<group>"; };
 		12796DF8368B91473690B2DA /* Pods-Convenience-ConvenienceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience-ConvenienceTests.debug.xcconfig"; path = "Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		52A275F6715394E0D5342A4B /* Pods-Convenience-ConvenienceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience-ConvenienceTests.release.xcconfig"; path = "Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -332,6 +340,7 @@
 				0E529BCB2326CD27007EE680 /* Persistence */,
 				0E529BC32326C8F1007EE680 /* Reviewer */,
 				0E5F5FA52326804600347CB9 /* Tables */,
+				0EB9EB652385F803009C0A1C /* WebServices */,
 				0EB4DFA3232676F6005E51D8 /* Convenience.h */,
 				0EB4DFA4232676F6005E51D8 /* Info.plist */,
 			);
@@ -345,6 +354,17 @@
 				0EB4DFB0232676F7005E51D8 /* Info.plist */,
 			);
 			path = ConvenienceTests;
+			sourceTree = "<group>";
+		};
+		0EB9EB652385F803009C0A1C /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				0EB9EB682385FC30009C0A1C /* Endpoint.swift */,
+				0EB9EB662385F82C009C0A1C /* ReadonlyWebServices.swift */,
+				0EB9EB6A2385FC46009C0A1C /* Response.swift */,
+				0EB9EB6C2385FCD6009C0A1C /* ResponseParser.swift */,
+			);
+			path = WebServices;
 			sourceTree = "<group>";
 		};
 		19EFA1749F383195CABB5967 /* Pods */ = {
@@ -639,6 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E5C5D03232B90A60078EA5A /* Organizer.swift in Sources */,
+				0EB9EB692385FC30009C0A1C /* Endpoint.swift in Sources */,
 				0E529BDA2326D647007EE680 /* SoftwareUsageViewController.swift in Sources */,
 				0E15A0C42326E51E00040112 /* CreditsViewController.swift in Sources */,
 				0E529BBF2326C6B7007EE680 /* SingleOptionViewController.swift in Sources */,
@@ -656,6 +677,9 @@
 				0E529BCD2326CD27007EE680 /* FileDownloader.swift in Sources */,
 				0EE48FAC2334D02D008FA28A /* UIViewController+Share.swift in Sources */,
 				0E15A0D12326EB0F00040112 /* UIViewController+Awesome.swift in Sources */,
+				0EB9EB6D2385FCD6009C0A1C /* ResponseParser.swift in Sources */,
+				0EB9EB672385F82C009C0A1C /* ReadonlyWebServices.swift in Sources */,
+				0EB9EB6B2385FC46009C0A1C /* Response.swift in Sources */,
 				0E5C5CFD232AD62A0078EA5A /* FileManager+Shortcuts.swift in Sources */,
 				0E15A0CB2326EA1800040112 /* UIButton+Awesome.swift in Sources */,
 				0E529BC82326C9B2007EE680 /* Keychain.swift in Sources */,
