@@ -6,7 +6,10 @@
 //  Copyright © 2019 Davide De Rosa. All rights reserved.
 //
 
+import Foundation
+#if os(iOS)
 import UIKit
+#endif
 
 public class ApplicationInfo {
     public static var appVersion: String {
@@ -20,6 +23,7 @@ public class ApplicationInfo {
         return "\(version) (\(build))"
     }
 
+    #if os(iOS)
     public static var osVersion: String {
         let device = UIDevice.current
         return "\(device.systemName) \(device.systemVersion)"
@@ -32,4 +36,5 @@ public class ApplicationInfo {
     public static func appStoreURL(withAppStoreId appStoreId: String) -> URL {
         return URL(string: "https://apps.apple.com/us/app/id\(appStoreId)")!
     }
+    #endif
 }
