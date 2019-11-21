@@ -46,17 +46,21 @@ open class CreditsViewController: UITableViewController, StrongTableHost {
     public var model: StrongTableModel<SectionType, RowType> = StrongTableModel()
     
     public func reloadModel() {
-        model.add(.licenses)
-        model.add(.notices)
-        model.add(.translations)
-
-        model.setHeader(licensesHeader, forSection: .licenses)
-        model.setHeader(noticesHeader, forSection: .notices)
-        model.setHeader(translationsHeader, forSection: .translations)
-
-        model.set(.license, count: licenses.count, forSection: .licenses)
-        model.set(.notice, count: notices.count, forSection: .notices)
-        model.set(.translation, count: languages.count, forSection: .translations)
+        if !licenses.isEmpty {
+            model.add(.licenses)
+            model.setHeader(licensesHeader, forSection: .licenses)
+            model.set(.license, count: licenses.count, forSection: .licenses)
+        }
+        if !notices.isEmpty {
+            model.add(.notices)
+            model.setHeader(noticesHeader, forSection: .notices)
+            model.set(.notice, count: notices.count, forSection: .notices)
+        }
+        if !languages.isEmpty {
+            model.add(.translations)
+            model.setHeader(translationsHeader, forSection: .translations)
+            model.set(.translation, count: languages.count, forSection: .translations)
+        }
     }
     
     // MARK: UIViewController
