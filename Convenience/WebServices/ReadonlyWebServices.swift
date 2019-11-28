@@ -12,9 +12,16 @@ import SwiftyBeaver
 private let log = SwiftyBeaver.self
 
 public class ReadonlyWebServices {
-    public var timeout: TimeInterval
+    private let queue: DispatchQueue
     
-    public init() {
+    public var timeout: TimeInterval
+
+    public convenience init() {
+        self.init(queue: .main)
+    }
+
+    public init(queue: DispatchQueue) {
+        self.queue = queue
         timeout = 10.0
     }
     
@@ -30,7 +37,9 @@ public class ReadonlyWebServices {
         session.dataTask(with: request) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 log.error("Error (response): \(error?.localizedDescription ?? "nil")")
-                completionHandler(nil, error)
+                self.queue.async {
+                    completionHandler(nil, error)
+                }
                 return
             }
 
@@ -43,7 +52,9 @@ public class ReadonlyWebServices {
             // 304: cache hit
             if statusCode == 304 {
                 log.debug("Response is cached")
-                completionHandler(Response(value: nil, lastModifiedString: nil, isCached: true), nil)
+                self.queue.async {
+                    completionHandler(Response(value: nil, lastModifiedString: nil, isCached: true), nil)
+                }
                 return
             }
 
@@ -52,20 +63,26 @@ public class ReadonlyWebServices {
             let lastModifiedString: String?
             guard statusCode == 200, let data = data else {
                 log.error("Error (network): \(error?.localizedDescription ?? "nil")")
-                completionHandler(nil, error)
+                self.queue.async {
+                    completionHandler(nil, error)
+                }
                 return
             }
             do {
                 value = try JSONDecoder().decode(type, from: data)
             } catch let e {
                 log.error("Error (parsing): \(e)")
-                completionHandler(nil, error)
+                self.queue.async {
+                    completionHandler(nil, error)
+                }
                 return
             }
             lastModifiedString = httpResponse.allHeaderFields["Last-Modified"] as? String
 
             let response = Response(value: value, lastModifiedString: lastModifiedString, isCached: false)
-            completionHandler(response, nil)
+            self.queue.async {
+                completionHandler(response, nil)
+            }
         }.resume()
     }
 }
