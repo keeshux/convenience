@@ -75,8 +75,12 @@ open class CreditsViewController: UITableViewController, StrongTableHost {
         if title == nil {
             title = "Credits"
         }
-        licenses = software.filter { $0.license != nil }.sorted()
-        notices = software.filter { $0.notice != nil }.sorted()
+
+        let caseInsensitiveSorting: (Software, Software) -> Bool = { (s1, s2) in
+            return s1.name.lowercased() < s2.name.lowercased()
+        }
+        licenses = software.filter { $0.license != nil }.sorted(by: caseInsensitiveSorting)
+        notices = software.filter { $0.notice != nil }.sorted(by: caseInsensitiveSorting)
 
         tableView.register(Cell.classForCoder(), forCellReuseIdentifier: Cell.reuseIdentifier)
         reloadModel()
