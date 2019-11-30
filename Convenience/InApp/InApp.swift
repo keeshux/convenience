@@ -27,6 +27,8 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
     
     public typealias RestoreObserver = (Bool, PID?, Error?) -> Void
     
+    public typealias FailureObserver = (Error) -> Void
+    
     private var productsMap: [PID: SKProduct]
     
     public var products: [SKProduct] {
@@ -35,6 +37,8 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
     
     private var productObservers: [ProductObserver]
     
+    private var productFailureObserver: FailureObserver?
+    
     private var transactionObservers: [String: TransactionObserver]
     
     private var restoreObservers: [RestoreObserver]
@@ -42,6 +46,7 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
     public override init() {
         productsMap = [:]
         productObservers = []
+        productFailureObserver = nil
         transactionObservers = [:]
         restoreObservers = []
         super.init()
@@ -53,12 +58,13 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
         SKPaymentQueue.default().remove(self)
     }
     
-    public func requestProducts(withIdentifiers identifiers: [PID], completionHandler: ProductObserver?) {
+    public func requestProducts(withIdentifiers identifiers: [PID], completionHandler: ProductObserver?, failureHandler: FailureObserver?) {
         let req = SKProductsRequest(productIdentifiers: Set(identifiers.map { $0.rawValue }))
         req.delegate = self
         if let observer = completionHandler {
             productObservers.append(observer)
         }
+        productFailureObserver = failureHandler
         req.start()
     }
 
@@ -97,6 +103,11 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
     }
     
     public func request(_ request: SKRequest, didFailWithError error: Error) {
+        if let _ = request as? SKProductsRequest {
+            DispatchQueue.main.async {
+                self.productFailureObserver?(error)
+            }
+        }
         transactionObservers.removeAll()
     }
     
