@@ -1,11 +1,12 @@
 Pod::Spec.new do |s|
     s.name              = "Convenience"
-    s.version           = "0.0.1"
-    s.summary           = "FIXME"
+    s.version           = "0.0.2"
+    s.summary           = "Reusable Swift code for my personal projects."
+
 
     s.homepage          = "https://github.com/keeshux/convenience"
     s.license           = { :type => "BSD", :file => "LICENSE" }
-    s.author            = { "Davide De Rosa" => "keeshux@gmail.com" }
+    s.author            = { "Davide De Rosa" => "me@davidederosa.com" }
     s.source            = { :git => "https://github.com/keeshux/convenience.git", :tag => "v#{s.version}" }
     s.swift_version     = "5.0"
 
