@@ -3,7 +3,7 @@
 //  Convenience
 //
 //  Created by Davide De Rosa on 9/12/19.
-//  Copyright © 2019 Davide De Rosa. All rights reserved.
+//  Copyright © 2020 Davide De Rosa. All rights reserved.
 //
 
 import Foundation
