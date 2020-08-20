@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     s.subspec "Awesome" do |p|
         p.ios.deployment_target = "11.0"
         p.ios.source_files = "Convenience/Awesome/*.{swift,xib}"
-        p.ios.dependency "FontAwesome.swift", "~> 1.9.0"
+        p.ios.dependency "FontAwesome.swift"
     end
     s.subspec "Dialogs" do |p|
         p.ios.deployment_target = "11.0"
