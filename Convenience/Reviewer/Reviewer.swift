@@ -75,6 +75,6 @@ public class Reviewer {
     }
 
     public static func urlForReview(withAppId appId: String) -> URL {
-        return URL(string: "https://itunes.apple.com/app/id\(appId)?action=write-review")!
+        return URL(string: "https://apps.apple.com/app/id\(appId)?action=write-review")!
     }
 }
