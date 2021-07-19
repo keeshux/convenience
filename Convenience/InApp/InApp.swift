@@ -108,7 +108,9 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
                 self.productFailureObserver?(error)
             }
         }
-        transactionObservers.removeAll()
+        DispatchQueue.main.async {
+            self.transactionObservers.removeAll()
+        }
     }
     
     private func receiveProducts(_ products: [SKProduct]) {
@@ -126,22 +128,20 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
     // MARK: SKPaymentTransactionObserver
 
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        let currentRestoreObservers = restoreObservers
-        
-        for tx in transactions {
-            let productIdentifier = tx.payment.productIdentifier
-            let observer = transactionObservers[productIdentifier]
+        DispatchQueue.main.async {
+            let currentRestoreObservers = self.restoreObservers
             
-            switch tx.transactionState {
-            case .purchased:
-                queue.finishTransaction(tx)
-                DispatchQueue.main.async {
+            for tx in transactions {
+                let productIdentifier = tx.payment.productIdentifier
+                let observer = self.transactionObservers[productIdentifier]
+                
+                switch tx.transactionState {
+                case .purchased:
+                    queue.finishTransaction(tx)
                     observer?(.success, nil)
-                }
 
-            case .restored:
-                queue.finishTransaction(tx)
-                DispatchQueue.main.async {
+                case .restored:
+                    queue.finishTransaction(tx)
                     observer?(.success, nil)
                     for r in currentRestoreObservers {
                         guard let pid = PID(rawValue: productIdentifier) else {
@@ -149,16 +149,12 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
                         }
                         r(false, pid, nil)
                     }
-                }
-                
-            case .failed:
-                queue.finishTransaction(tx)
-                if let skError = tx.error as? SKError, skError.code == .paymentCancelled {
-                    DispatchQueue.main.async {
+                    
+                case .failed:
+                    queue.finishTransaction(tx)
+                    if let skError = tx.error as? SKError, skError.code == .paymentCancelled {
                         observer?(.cancelled, nil)
-                    }
-                } else {
-                    DispatchQueue.main.async {
+                    } else {
                         observer?(.failure, tx.error)
                         for r in currentRestoreObservers {
                             guard let pid = PID(rawValue: productIdentifier) else {
@@ -167,26 +163,30 @@ public class InApp<PID: Hashable & RawRepresentable>: NSObject,
                             r(false, pid, tx.error)
                         }
                     }
+                    
+                default:
+                    break
                 }
-                
-            default:
-                break
             }
         }
     }
 
     public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        for r in restoreObservers {
-            r(true, nil, nil)
+        DispatchQueue.main.async {
+            for r in self.restoreObservers {
+                r(true, nil, nil)
+            }
+            self.restoreObservers.removeAll()
         }
-        restoreObservers.removeAll()
     }
     
     public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
-        for r in restoreObservers {
-            r(true, nil, error)
+        DispatchQueue.main.async {
+            for r in self.restoreObservers {
+                r(true, nil, error)
+            }
+            self.restoreObservers.removeAll()
         }
-        restoreObservers.removeAll()
     }
 }
 
