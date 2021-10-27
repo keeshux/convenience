@@ -6,7 +6,9 @@
 //  Copyright © 2019 Davide De Rosa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 class AboutDemo: UIViewController {
 }

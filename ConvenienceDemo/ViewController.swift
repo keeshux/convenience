@@ -6,7 +6,9 @@
 //  Copyright © 2021 Davide De Rosa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 class ViewController: UITableViewController {
     private let rows: [String] = [

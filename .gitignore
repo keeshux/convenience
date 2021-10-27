@@ -2,7 +2,7 @@
 *.swp
 *.o
 *.pbxuser
-*.xcworkspace/xcuserdata
 *.xcodeproj/project.xcworkspace
 *.xcodeproj/xcuserdata
-Pods
+.build
+.swiftpm

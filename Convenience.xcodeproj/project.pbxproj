@@ -55,9 +55,6 @@
 		0EB9EB6B2385FC46009C0A1C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB9EB6A2385FC46009C0A1C /* Response.swift */; };
 		0EB9EB6D2385FCD6009C0A1C /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB9EB6C2385FCD6009C0A1C /* ResponseParser.swift */; };
 		0EE48FAC2334D02D008FA28A /* UIViewController+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE48FAB2334D02D008FA28A /* UIViewController+Share.swift */; };
-		49AF37C27D8A53E40A8C3566 /* Pods_Convenience_ConvenienceDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B351196D5B03C71980BE759 /* Pods_Convenience_ConvenienceDemo.framework */; };
-		C935640AAE5B6C1035971801 /* Pods_Convenience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BDF04F5B9D4CE41A69C188 /* Pods_Convenience.framework */; };
-		F5EADF5F7F4CD7B044466CB9 /* Pods_Convenience_ConvenienceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892C3FC2485FBAEE1F885BD6 /* Pods_Convenience_ConvenienceTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,15 +127,6 @@
 		0EB9EB6A2385FC46009C0A1C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		0EB9EB6C2385FCD6009C0A1C /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		0EE48FAB2334D02D008FA28A /* UIViewController+Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Share.swift"; sourceTree = "<group>"; };
-		12796DF8368B91473690B2DA /* Pods-Convenience-ConvenienceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience-ConvenienceTests.debug.xcconfig"; path = "Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests.debug.xcconfig"; sourceTree = "<group>"; };
-		52A275F6715394E0D5342A4B /* Pods-Convenience-ConvenienceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience-ConvenienceTests.release.xcconfig"; path = "Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests.release.xcconfig"; sourceTree = "<group>"; };
-		58D5037D1E546BD822F2C000 /* Pods-Convenience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience.release.xcconfig"; path = "Target Support Files/Pods-Convenience/Pods-Convenience.release.xcconfig"; sourceTree = "<group>"; };
-		892C3FC2485FBAEE1F885BD6 /* Pods_Convenience_ConvenienceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenience_ConvenienceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B351196D5B03C71980BE759 /* Pods_Convenience_ConvenienceDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenience_ConvenienceDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95D4D00CA4858A9A82DCE7C5 /* Pods-Convenience-ConvenienceDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience-ConvenienceDemo.release.xcconfig"; path = "Target Support Files/Pods-Convenience-ConvenienceDemo/Pods-Convenience-ConvenienceDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D7B896E230F039E93EF19FFC /* Pods-Convenience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience.debug.xcconfig"; path = "Target Support Files/Pods-Convenience/Pods-Convenience.debug.xcconfig"; sourceTree = "<group>"; };
-		EA2D211184977E85105B0D5C /* Pods-Convenience-ConvenienceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenience-ConvenienceDemo.debug.xcconfig"; path = "Target Support Files/Pods-Convenience-ConvenienceDemo/Pods-Convenience-ConvenienceDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		F7BDF04F5B9D4CE41A69C188 /* Pods_Convenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +135,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E5F5FC72326BFAA00347CB9 /* Convenience.framework in Frameworks */,
-				49AF37C27D8A53E40A8C3566 /* Pods_Convenience_ConvenienceDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +142,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C935640AAE5B6C1035971801 /* Pods_Convenience.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB4DFAA232676F7005E51D8 /* Convenience.framework in Frameworks */,
-				F5EADF5F7F4CD7B044466CB9 /* Pods_Convenience_ConvenienceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +297,6 @@
 				0E5F5FB12326BF1700347CB9 /* ConvenienceDemo */,
 				0EB4DFA1232676F6005E51D8 /* Products */,
 				19EFA1749F383195CABB5967 /* Pods */,
-				CC1A065310E8283C9DFE8A06 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -370,24 +354,8 @@
 		19EFA1749F383195CABB5967 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D7B896E230F039E93EF19FFC /* Pods-Convenience.debug.xcconfig */,
-				58D5037D1E546BD822F2C000 /* Pods-Convenience.release.xcconfig */,
-				12796DF8368B91473690B2DA /* Pods-Convenience-ConvenienceTests.debug.xcconfig */,
-				52A275F6715394E0D5342A4B /* Pods-Convenience-ConvenienceTests.release.xcconfig */,
-				EA2D211184977E85105B0D5C /* Pods-Convenience-ConvenienceDemo.debug.xcconfig */,
-				95D4D00CA4858A9A82DCE7C5 /* Pods-Convenience-ConvenienceDemo.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		CC1A065310E8283C9DFE8A06 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F7BDF04F5B9D4CE41A69C188 /* Pods_Convenience.framework */,
-				892C3FC2485FBAEE1F885BD6 /* Pods_Convenience_ConvenienceTests.framework */,
-				8B351196D5B03C71980BE759 /* Pods_Convenience_ConvenienceDemo.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,11 +376,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E5F5FC12326BF1900347CB9 /* Build configuration list for PBXNativeTarget "ConvenienceDemo" */;
 			buildPhases = (
-				81FAB9AF26EB39AED903AD46 /* [CP] Check Pods Manifest.lock */,
 				0E5F5FAC2326BF1700347CB9 /* Sources */,
 				0E5F5FAD2326BF1700347CB9 /* Frameworks */,
 				0E5F5FAE2326BF1700347CB9 /* Resources */,
-				2FB36271A3A4BC0847601403 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,7 +394,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EB4DFB4232676F7005E51D8 /* Build configuration list for PBXNativeTarget "Convenience" */;
 			buildPhases = (
-				C0BD2298844E4A5FBCAC12F9 /* [CP] Check Pods Manifest.lock */,
 				0EB4DF9B232676F6005E51D8 /* Headers */,
 				0EB4DF9C232676F6005E51D8 /* Sources */,
 				0EB4DF9D232676F6005E51D8 /* Frameworks */,
@@ -447,11 +412,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EB4DFB7232676F7005E51D8 /* Build configuration list for PBXNativeTarget "ConvenienceTests" */;
 			buildPhases = (
-				2FD63C32033A6C08E5C7FA32 /* [CP] Check Pods Manifest.lock */,
 				0EB4DFA5232676F7005E51D8 /* Sources */,
 				0EB4DFA6232676F7005E51D8 /* Frameworks */,
 				0EB4DFA7232676F7005E51D8 /* Resources */,
-				E54BFF6B424C98AB1D98ED95 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -532,109 +495,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2FB36271A3A4BC0847601403 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Convenience-ConvenienceDemo/Pods-Convenience-ConvenienceDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Convenience-ConvenienceDemo/Pods-Convenience-ConvenienceDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Convenience-ConvenienceDemo/Pods-Convenience-ConvenienceDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2FD63C32033A6C08E5C7FA32 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Convenience-ConvenienceTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81FAB9AF26EB39AED903AD46 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Convenience-ConvenienceDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0BD2298844E4A5FBCAC12F9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Convenience-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E54BFF6B424C98AB1D98ED95 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Convenience-ConvenienceTests/Pods-Convenience-ConvenienceTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E5F5FAC2326BF1700347CB9 /* Sources */ = {
@@ -735,7 +595,6 @@
 /* Begin XCBuildConfiguration section */
 		0E5F5FC22326BF1900347CB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA2D211184977E85105B0D5C /* Pods-Convenience-ConvenienceDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -755,7 +614,6 @@
 		};
 		0E5F5FC32326BF1900347CB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95D4D00CA4858A9A82DCE7C5 /* Pods-Convenience-ConvenienceDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -895,7 +753,6 @@
 		};
 		0EB4DFB5232676F7005E51D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7B896E230F039E93EF19FFC /* Pods-Convenience.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -921,7 +778,6 @@
 		};
 		0EB4DFB6232676F7005E51D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58D5037D1E546BD822F2C000 /* Pods-Convenience.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -947,7 +803,6 @@
 		};
 		0EB4DFB8232676F7005E51D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12796DF8368B91473690B2DA /* Pods-Convenience-ConvenienceTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTDYD63ZX9;
@@ -966,7 +821,6 @@
 		};
 		0EB4DFB9232676F7005E51D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 52A275F6715394E0D5342A4B /* Pods-Convenience-ConvenienceTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTDYD63ZX9;
