@@ -34,8 +34,8 @@ let package = Package(
             name: "ConvenienceUI",
             dependencies: [
                 "Convenience",
-                .productItem(name: "FontAwesome", package: "FontAwesome", condition: .when(platforms: [.iOS])),
-                .productItem(name: "MBProgressHUD", package: "MBProgressHUD", condition: .when(platforms: [.iOS]))
+                .product(name: "FontAwesome", package: "FontAwesome", condition: .when(platforms: [.iOS])),
+                .product(name: "MBProgressHUD", package: "MBProgressHUD", condition: .when(platforms: [.iOS]))
             ],
             resources: [
                 .process("About/SoftwareUsageViewController.xib"),
